@@ -8,7 +8,7 @@ from .config import TARGET_COLS
 from sklearn.metrics import classification_report, confusion_matrix
 
 
-def test_model():
+def test_model(thershold=0.35):
     """
     Tests Trained model in test_clean.csv
     Returns
@@ -21,7 +21,9 @@ def test_model():
     test_X = test_set.drop(TARGET_COLS, axis=1)
 
     lead_scoring_model = joblib.load("models/lead_scoring_model.pkl")
-    test_preds = lead_scoring_model.predict(test_X)
+
+    test_preds = lead_scoring_model.predict_proba(test_X)[:, 1] > thershold
+
     report = classification_report(test_y, test_preds)
     conf_mx = confusion_matrix(test_y, test_preds, normalize="true")
     return report, conf_mx
