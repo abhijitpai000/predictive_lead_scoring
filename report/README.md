@@ -1,15 +1,24 @@
+# Final Report
 # Predictive Lead Scoring using ML
 
 ### Overview:
 Predictive Lead Scoring is a method used to analyze lead behavior in historical customer data to find patterns resulting in a positive business outcome, such as a closed deal with a client. In this study, I developed a lead scoring model using the [Bank Marketing](https://archive.ics.uci.edu/ml/datasets/bank+marketing) dataset, which contains the outcome of clients subscribing to a term deposit or not based on a direct marketing campaign performed by a Portuguese bank.
 
-**Model Design**
+**Model Design:**
+
 Since the evaluation of a classification model is tricky, I assumed that Losing a potential customer cost > Sales Resource Cost as a business objective, which statistically translates to developing a model that gives Low False Negatives and High True Positives, with balancing False Positives.
 
-**Model Outcome**
+**Model Outcome:**
+
 To mimic a real-time model evaluation, I separated ~10,000 observation points from the dataset and trained on ~30,000 observation points. The following is the result of my trained LightGBM model on the hold-out dataset.
 
 >  75.04% of Leads predicted by the model have resulted in conversion. And, a 29.56% False Positive rate, 24.95% False Negative Rate is observed.
+
+
+*Segmenting Leads based on Model Predictions:*
+
+
+ <img src="https://github.com/abhijitpai000/predictive_lead_scoring/blob/master/report/figures/output_20_1.png" width="500" />
 
 ### Findings:
 Based on Feature Importance and Permutation Importance, the following features have a significant impact on training and target predictions.
@@ -18,8 +27,7 @@ Based on Feature Importance and Permutation Importance, the following features h
 * campaign = number of contacts performed during this campaign and for this client
 * euribor3m = euribor 3 month rate 
 
-![image.png](attachment:image.png)
-
+<img src="https://github.com/abhijitpai000/predictive_lead_scoring/blob/master/report/figures/feature_importance.png" width="600" />
 
 ### Data Source.
 UCI Machine Learning Repository - [Bank Marketing](https://archive.ics.uci.edu/ml/datasets/bank+marketing) dataset.
@@ -33,7 +41,7 @@ UCI Machine Learning Repository - [Bank Marketing](https://archive.ics.uci.edu/m
 1. [Package Introduction](#introduction)
 2. [Preprocess](#preprocess)
 3. [Training](#train)
-4. [Prediction and Lead Segmentation](#predict)
+4. [Test Prediction](#predict)
 5. [Lead Scoring](#scoring)
 
 # Experiment: <a name="experiment"></a>
@@ -110,19 +118,6 @@ with pd.option_context("display.max_rows", 4, "display.max_columns", 25):
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -268,7 +263,7 @@ raw.y.value_counts(normalize=True)
 
 
 
-# Data Pre-processing
+# Data Pre-processing <a name="preprocess"></a>
 
 **make_dataset()** Based on the insights gained from experiment, make dataset will perform following actions.
 * Drops "duration" feature, which is the last contact duration, in seconds. Since this dataset is based on a Direct marketing campaign done through phone calls, the duration is not known prior to the campaign and the outcome will be known when the call ends, this feature could pose a potential target leakage, may result in over-optimistic predictions.
@@ -301,19 +296,6 @@ with pd.option_context("display.max_rows", 4, "display.max_columns", 25):
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -462,19 +444,6 @@ pd.DataFrame(cv_results)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -651,19 +620,6 @@ with pd.option_context("display.max_rows", 4, "display.max_columns", 25):
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -814,7 +770,7 @@ sns.countplot(lead_scoring["predicted_probability"])
 
 
 
-![png](output_20_1.png)
+![lead_cats](https://github.com/abhijitpai000/predictive_lead_scoring/blob/master/report/figures/output_20_1.png)
 
 
 **END**
