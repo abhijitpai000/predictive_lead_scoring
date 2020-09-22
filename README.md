@@ -18,6 +18,7 @@ To mimic a real-time model evaluation, I separated ~10,000 observation points fr
 
 
  <img src="https://github.com/abhijitpai000/predictive_lead_scoring/blob/master/report/figures/output_20_1.png" width="500" />
+
 ## Data Source
 UCI Machine Learning Repository - [Bank Marketing](https://archive.ics.uci.edu/ml/datasets/bank+marketing) dataset.
 
