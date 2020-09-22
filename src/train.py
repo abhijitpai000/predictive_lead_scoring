@@ -26,8 +26,8 @@ def train_model():
     target = train_clean[TARGET_COLS]
 
     skf = StratifiedKFold(n_splits=10, shuffle=True, random_state=0)
-    lgb_clf = lgb(class_weight='balanced', max_depth=7, n_estimators=200,
-                  num_leaves=7, random_state=0)
+    lgb_clf = lgb(class_weight='balanced', max_depth=9, num_leaves=9,
+                  random_state=0)
 
     cv_results = cross_validate(lgb_clf, features, target,
                                 scoring=['roc_auc', 'precision', 'recall'],
