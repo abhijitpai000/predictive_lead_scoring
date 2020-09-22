@@ -4,7 +4,6 @@ from src.folds import generate_folds
 from src.train import train_model
 from src.predict import test_model
 
-import pandas as pd
 import numpy as np
 
 if __name__ == '__main__':
@@ -27,6 +26,6 @@ if __name__ == '__main__':
     report, conf_mx = test_model()
     print(f"\nTEST RESULTS:"
           f"\n {report}"
-          f"\nTrue Negative Rate: {round(conf_mx[1][1]*100, 3)}"
-          f"\nFalse Negative Rate: {round(conf_mx[0][1]*100, 3)}"
-          f"\nFalse Positive Rate: {round(conf_mx[1][0]*100, 3)}")
+          f"\nTrue Positive Rate: {round(conf_mx[1][1]*100, 3)}"
+          f"\nFalse Positive Rate: {round(conf_mx[0][1]*100, 3)}"
+          f"\nFalse Negative Rate: {round(conf_mx[1][0]*100, 3)}")
