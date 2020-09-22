@@ -20,12 +20,12 @@ def train():
 
 def test_train_set(train):
     """test set shape"""
-    assert train[0].shape == (30891, 21), "Train set Failed"
+    assert train[0].shape == (30891, 20), "Train set Failed"
 
 
 def test_train_clean(train):
     """test clean shape"""
-    assert train[1].shape == (30891, 21), "Train Clean Failed"
+    assert train[1].shape == (30891, 20), "Train Clean Failed"
 
 
 @pytest.fixture
@@ -37,9 +37,9 @@ def test():
 
 def test_test_set(test):
     """test set shape"""
-    assert test[0].shape == (10297, 21), "Test set Failed"
+    assert test[0].shape == (10297, 20), "Test set Failed"
 
 
 def test_test_clean(test):
     """test clean shape"""
-    assert test[0].shape == (10297, 21), "Test Clean Failed"
+    assert test[0].shape == (10297, 20), "Test Clean Failed"
