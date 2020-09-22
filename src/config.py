@@ -14,7 +14,6 @@ CAT_COLS = ['job',
             'poutcome']
 
 NUM_COLS = ['age',
-            'duration',
             'campaign',
             'pdays',
             'previous',
@@ -23,3 +22,5 @@ NUM_COLS = ['age',
             'cons.conf.idx',
             'euribor3m',
             'nr.employed']
+
+DROP_COLS = ["duration"]
