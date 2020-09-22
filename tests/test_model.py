@@ -12,8 +12,8 @@ def load_train_cv_results():
 
 
 def test_roc_score(load_train_cv_results):
-    assert load_train_cv_results[0] > 0.92, "Attained ROC < 0.92"
+    assert load_train_cv_results[0] > 0.75, "Attained ROC < 0.75"
 
 
 def test_recall_score(load_train_cv_results):
-    assert load_train_cv_results[1] > 0.88, "Attained Recall< 0.88"
+    assert load_train_cv_results[1] > 0.60, "Attained Recall < 0.60"
