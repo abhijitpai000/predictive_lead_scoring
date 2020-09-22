@@ -24,7 +24,7 @@ UCI Machine Learning Repository - [Bank Marketing](https://archive.ics.uci.edu/m
 
 ## Final Report & Package Walk-Through
 
-To reproduce this study, use modules in 'src' directory of this repo. (setup instructions below) and walk-through of the package is presented in the [final report](https://github.com/abhijitpai000/retail_summer_sales/tree/master/report)
+To reproduce this study, use modules in 'src' directory of this repo. (setup instructions below) and walk-through of the package is presented in the [final report](https://github.com/abhijitpai000/predictive_lead_scoring/blob/master/report/README.md)
 
 ## Setup instructions
 
