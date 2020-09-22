@@ -18,7 +18,7 @@ def train_model():
 
     Returns
     -------
-        cross-validation roc_auc, precision & recall scores.
+        dict, cross-validation roc_auc, precision & recall scores.
     """
     train_clean = pd.read_csv("datasets/train_clean.csv")
 
