@@ -21,7 +21,8 @@ from .config import TARGET_COLS, CAT_COLS, NUM_COLS, DROP_COLS
 # STEP 1
 def _split_data(dataframe, shuffle=True):
     """
-    Split data into train and test set (75:25 ratio).
+    Drops "Duration" columns and Splits data into train and test set (75:25 ratio).
+
     Parameters
     ----------
         dataframe: pandas dataframe.
@@ -32,6 +33,10 @@ def _split_data(dataframe, shuffle=True):
         train_set: 'datasets/train_set'
         test_set: 'datasets/test_set'
     """
+    # Drop Duration.
+    dataframe.drop(DROP_COLS, axis=1, inplace=True)
+
+    # Train_set, test_set split.
     train, test = train_test_split(dataframe,
                                    shuffle=shuffle,
                                    random_state=0)
@@ -145,6 +150,7 @@ def make_dataset(raw_file_name):
 
     # Creating Splits.
     raw_df = pd.read_csv("datasets/raw.csv")
+
     _split_data(raw_df, shuffle=True)
 
     # Pre-Processing Train set and test set.
