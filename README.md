@@ -34,7 +34,7 @@ This repository has been tested on Python 3.7.6.
 
 1. Cloning the repository:
 
-`git clone https://github.com/abhijitpai000/retail_summer_sales.git`
+`git clone https://github.com/abhijitpai000/predictive_lead_scoring.git`
 
 2. Navigate to the git clone repository.
 
