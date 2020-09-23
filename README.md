@@ -38,19 +38,21 @@ This repository has been tested on Python 3.7.6.
 
 2. Navigate to the git clone repository.
 
-`cd customer_segmentation_rfm`
+`cd predictive_lead_scoring`
 
-3. Install [virtualenv](https://pypi.org/project/virtualenv/)
+3. Download raw data from the data source link and place in "datasets" directory
+
+4. Install [virtualenv](https://pypi.org/project/virtualenv/)
 
 `pip install virtualenv`
 
-`virtualenv rfm`
+`virtualenv lead_scoring`
 
-4. Activate it by running:
+5. Activate it by running:
 
-`rfm/Scripts/activate`
+`lead_scoring/Scripts/activate`
 
-5. Install project requirements by using:
+6. Install project requirements by using:
 
 `pip install -r requirements.txt`
 
