@@ -149,7 +149,7 @@ def make_dataset(raw_file_name):
     """
 
     # Creating Splits.
-    raw_df = pd.read_csv("datasets/raw.csv")
+    raw_df = pd.read_csv(f"datasets/{raw_file_name}.csv", delimiter=";")
 
     _split_data(raw_df, shuffle=True)
 
