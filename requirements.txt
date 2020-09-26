@@ -1,25 +1,25 @@
-python=3.7.6
+python==3.7.6
 
 # For Path Objects.
-pathlib=2.3.5
+pathlib==2.3.5
 
 # For Models.
-scikit-learn=0.23.2
-lightgbm=2.3.1
+scikit-learn==0.23.2
+lightgbm==2.3.1
 
 # For DataFrames and Arrays.
-pandas=1.1.1
-numpy=1.19.1
+pandas==1.1.1
+numpy==1.19.1
 
 # Saving .pkl models.
-joblib=0.16.0
+joblib==0.16.0
 
 # For Plotting.
-seaborn=0.10.1
-matplotlib=3.3.1
+seaborn==0.10.1
+matplotlib==3.3.1
 
 # Tests
-pytest=6.0.2
+pytest==6.0.2
 
 
 
