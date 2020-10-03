@@ -29,8 +29,10 @@ Based on Feature Importance and Permutation Importance, the following features h
 
 <img src="https://github.com/abhijitpai000/predictive_lead_scoring/blob/master/report/figures/feature_importance.png" width="600" />
 
-### Data Source.
-UCI Machine Learning Repository - [Bank Marketing](https://archive.ics.uci.edu/ml/datasets/bank+marketing) dataset.
+### About Bank Marketing Dataset.
+This dataset contains outcome of clients subscribing to a term deposit or not based on a direct marketing campaign performed by a Portuguese bank.
+
+**Source** UCI Machine Learning Repository [Bank Marketing](https://archive.ics.uci.edu/ml/datasets/bank+marketing) dataset.
  
 
 
@@ -99,12 +101,16 @@ import joblib
 raw = pd.read_csv("datasets/raw.csv")
 
 raw.shape
+
+"""
+    (41188, 21)
+"""
 ```
 
 
 
 
-    (41188, 21)
+
 
 
 
@@ -252,14 +258,18 @@ with pd.option_context("display.max_rows", 4, "display.max_columns", 25):
 # Target Class Weights Balance.
 
 raw.y.value_counts(normalize=True)
+
+"""
+    no     0.887346
+    yes    0.112654
+    Name: y, dtype: float64
+"""
 ```
 
 
 
 
-    no     0.887346
-    yes    0.112654
-    Name: y, dtype: float64
+
 
 
 
@@ -277,12 +287,16 @@ raw.y.value_counts(normalize=True)
 train_clean, test_clean = make_dataset(raw_file_name="raw.csv")
 
 train_clean.shape, test_clean.shape
+
+"""
+    ((30891, 20), (10297, 20))
+"""
 ```
 
 
 
 
-    ((30891, 20), (10297, 20))
+
 
 
 
@@ -550,13 +564,18 @@ print(f"\nTRAIN SCORES:"
           f"\nROC_AUC: {np.mean(cv_results['test_roc_auc'])}"
           f"\nPrecision: {np.mean(cv_results['test_roc_auc'])}"
           f"\nRecall: {np.mean(cv_results['test_recall'])}")
-```
 
-    
+"""
     TRAIN SCORES:
     ROC_AUC: 0.8003901184771813
     Precision: 0.8003901184771813
     Recall: 0.634963607021704
+
+"""
+```
+
+    
+
     
 
 # Test Prediction <a name="predict"></a>
@@ -583,9 +602,8 @@ print(f"\nTEST RESULTS:"
           f"\nTrue Positive Rate: {round(conf_mx[1][1]*100, 3)}"
           f"\nFalse Positive Rate: {round(conf_mx[0][1]*100, 3)}"
           f"\nFalse Negative Rate: {round(conf_mx[1][0]*100, 3)}")
-```
-
-    
+          
+"""
     TEST RESULTS:
                    precision    recall  f1-score   support
     
@@ -599,6 +617,11 @@ print(f"\nTEST RESULTS:"
     True Positive Rate: 75.043
     False Positive Rate: 29.566
     False Negative Rate: 24.957
+"""
+```
+
+    
+
     
 
 # Lead Scoring <a name="scoring"></a>
